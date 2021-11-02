@@ -1,0 +1,22 @@
+FROM node:14
+#creating application directory
+
+WORKDIR /user/src/app
+
+#install all application dependencies(package.json)
+COPY package*.json ./
+
+#bundle application sources
+
+COPY . .
+
+#expose port 8080
+
+EXPOSE 4200
+
+# port 4200 is for angular 
+
+#run the command to start the node server.js
+
+ENTRYPOINT ["npm"]
+CMD ["start"]
